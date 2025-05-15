@@ -47,3 +47,35 @@ Update title and description:
 ```shell
 curl --header "Content-Type: application/json" --request PUT --data '{"id":19,"name":"New Café (UBT)","description":"My description","type":"CAFE","campus":"MAIN","street":"Teststraße","houseNumber":"99","postalCode":12345,"city":"Bayreuth"}%' http://localhost:8080/api/pos/19 # set correct task id here and in the body
 ```
+
+#### Aufgabe:  Testen Sie die REST API mit curl
+
+POST command:
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{
+  "id": null,
+  "createdAT": null,
+  "updatedAt": null,
+  "name": "Stadtbäckerei Schaller GmbH",
+  "description": "Bäckerei",
+  "type": "BAKERY",
+  "campus": "ZAPF",
+  "street": "Nürnberger",
+  "houseNumber": "3b",
+  "postalCode": 95448,
+  "city": "Bayreuth"
+}' http://localhost:8080/api/pos
+```
+
+```shell
+{"id":4,"createdAt":"2025-05-15T06:17:01.530563725","updatedAt":"2025-05-15T06:17:01.530573387","name":"Stadtbäckerei Schaller GmbH","description":"Bäckerei","type":"BAKERY","campus":"ZAPF","street":"Nürnberger","houseNumber":"3b","postalCode":95448,"city":"Bayreuth"}%
+```
+
+GET command:
+```shell
+curl http://localhost:8080/api/pos/4
+```
+
+```shell
+{"id":4,"createdAt":"2025-05-15T06:17:01.530564","updatedAt":"2025-05-15T06:17:01.530573","name":"Stadtbäckerei Schaller GmbH","description":"Bäckerei","type":"BAKERY","campus":"ZAPF","street":"Nürnberger","houseNumber":"3b","postalCode":95448,"city":"Bayreuth"}% 
+```
